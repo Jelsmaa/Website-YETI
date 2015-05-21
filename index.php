@@ -1,5 +1,5 @@
 <?php
-include(database.php);
+include('database.php');
 function session_login($tmp_username, $tmp_auth_read, $tmp_auth_write){
 	session_start();
 	$_SESSION['current_user']=$tmp_username;
