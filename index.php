@@ -15,7 +15,7 @@ function session_logout(){
 }
 
 function session_update(){
-	
+	/* Hoi Jelle */
 }
 
 function session_check(){
