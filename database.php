@@ -7,10 +7,10 @@ $dbbname = 'yeti';
 	
 function open_database(){
 	$dbconn = mysql_connect($dbbhost, $dbbuser, $dbbpass) or die("Couldn't connect to SQL Server"); 
-	mysql_select_db($dbbname)
+	mysql_select_db($dbbname);
 }
 
 function close_database(){
-	mysql_close($dbconn)
+	mysql_close($dbconn);
 }
 ?>
