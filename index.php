@@ -1,11 +1,10 @@
 <?php
-
-function session_login($tmp_username, $tmp_auth_level, $tmp_auth_special){
+function session_login($tmp_username, $tmp_auth_read, $tmp_auth_write){
 	session_start();
-	$_SESSION["current_user"]=$tmp_username;
-	$_SESSION["auth_level"]= $tmp_auth_level;
-	$_SESSION["auth_special"]= $tmp_auth_special;
-	echo "Logged in as $tmp_username<br>";
+	$_SESSION['current_user']=$tmp_username;
+	$_SESSION['auth_read']= $tmp_auth_read;
+	$_SESSION['auth_write']= $tmp_auth_write;
+	echo "Welkom $tmp_username<br>";
 }
 
 function session_logout(){
