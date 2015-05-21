@@ -10,7 +10,6 @@ function session_login($tmp_username, $tmp_auth_read, $tmp_auth_write){
 function session_logout(){
 	unset($_SESSION["current_user"]);
 	unset($_SESSION["auth_level"]);
-	unset($_SESSION["auth_special"]);
 	echo "Logged out";
 }
 
