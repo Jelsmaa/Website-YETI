@@ -26,7 +26,7 @@ function session_check(){
  * @param int $tmp_pagenr The page number.
  * @return boolean The array with the values for read and write.
  */
-function hasAcces($tmp_pagenr){
+function hasAccess($tmp_pagenr){
 	
 	$tmp_rights['read'] = false;
 	$tmp_rights['write'] = false;
@@ -46,7 +46,7 @@ function hasAcces($tmp_pagenr){
 session_login('Jelle',array(1,2,3),array(2, 3));
 echo $current_user;
 echo "User: ".$_SESSION['current_user']."<br>";
-$tmp_rigths = hasAcces(1);
+$tmp_rigths = hasAccess(1);
 echo (int)$tmp_rigths['read'], "<br>";
 echo (int)$tmp_rigths['write'], "<br>";
 $tmp_rigths = hasAccess(2);
