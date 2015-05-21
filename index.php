@@ -20,31 +20,38 @@ function session_update(){
 function session_check(){
 
 }
-
-function magjijdit($req_read_special, $req_write_special){
+/** Checks for a given pagenumber if the user has read and/or write access to the page.
+ * 
+ * @param int $tmp_pagenr The page number.
+ * @return boolean The array with the values for read and write.
+ */
+function hasAcces($tmp_pagenr){
 	
-	/* Stuur rechten terug in een array */
-	If (in_array($req_read_special, $_SESSION["auth_special"])) {
-		echo "Lezen: Ja<br>";
-	} else {
-		echo "Lezen: Nee<br>";
+	$tmp_rights['read'] = false;
+	$tmp_rights['write'] = false;
+	
+	If (in_array($tmp_pagenr, $_SESSION["auth_read"])) {
+		$tmp_rights['read'] = true;
 	}
-	If (in_array($req_write_special, $_SESSION["auth_special"])) {
-		echo "Schrijven: Ja<br>";
-	} else {
-		echo "SChijven: Nee<br>";
+	If (in_array($tmp_pagenr, $_SESSION["auth_write"])) {
+		$tmp_rights['write'] = true;
 	}
+	return $tmp_rights;
 }
 
-
-session_login('Jelle','1',array(1,4,6,7,4,3,6,3,7,7,2,1,3,6,7,4,7,8,3,5,8,9,3,5,4,5,3,3,5,4,3,2,2,4,6,6,5,4,3,4,5,6,7,5,4,3,4,5,6,7,86,5,4,3,4,4,5,6,6));
+/** Tests
+ * 
+ */
+session_login('Jelle',array(1,2,3),array(2, 3));
 echo $current_user;
-echo $auth_level;
-echo $auth_special[1];
 echo "User: ".$_SESSION['current_user']."<br>";
-foreach ($_SESSION["auth_special"] as $auth){
-	echo "Level: $auth <br>";
-}
-magjijdit(4,2);
+$tmp_rigths = hasAcces(1);
+echo (int)$tmp_rigths['read'], "<br>";
+echo (int)$tmp_rigths['write'], "<br>";
+$tmp_rigths = hasAccess(2);
+echo (int)$tmp_rigths['read'], "<br>";
+echo (int)$tmp_rigths['write'], "<br>";
+
+
 session_logout();
 ?>
