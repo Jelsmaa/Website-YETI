@@ -1,4 +1,5 @@
 <?php
+
 function session_login($tmp_username, $tmp_auth_level, $tmp_auth_special){
 	session_start();
 	$_SESSION["current_user"]=$tmp_username;
@@ -15,7 +16,7 @@ function session_logout(){
 }
 
 function session_update(){
-	/* Hoi Jelle */
+
 }
 
 function session_check(){
